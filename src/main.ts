@@ -1,10 +1,13 @@
-const numTurno = (document.querySelector(".numero-turno")as HTMLInputElement);
-const ElegirTurno = document.getElementById('elegir-turno') as HTMLInputElement;
+const numTurno = (document.querySelector(".numero-turno"));
+const elegirTurno = document.getElementById('elegir-turno') ;
 
 let numInicio = 1;
 
 function actualizarTurno(){
-   numTurno.textContent = numInicio.toString().padStart(2, '0');
+   if (numTurno !== null && numTurno !== undefined && numTurno instanceof HTMLInputElement) {
+      numTurno.textContent = numInicio.toString().padStart(2, '0');
+     }
+   
 }
 function siguienteTurno() {
    numInicio++;
@@ -24,20 +27,34 @@ function resetTurno() {
 
 
 
-function elegirTurno() {
-   const turnoElegido = parseInt(ElegirTurno.value, 10);
+function elegirTurnos() {
+   if (elegirTurno !== null && elegirTurno !== undefined && elegirTurno instanceof HTMLInputElement){
+      const turnoElegido = parseInt(elegirTurno.value, 10);
+
    if (!isNaN(turnoElegido) && turnoElegido >= 1) {
      numInicio = turnoElegido;
      actualizarTurno();
    }
  }
+ }
 
-const btnTurnoSigu = document.getElementById('btnTurnoSigu') as HTMLButtonElement;
-const btnTurnoAntr = document.getElementById('btnTurnoAntr') as HTMLButtonElement;
-const btnReset = document.getElementById('btnReset') as HTMLButtonElement;
-const btnElegir = document.getElementById('btnElegir') as HTMLButtonElement;
+const btnTurnoSigu = document.getElementById('btnTurnoSigu');
+const btnTurnoAntr = document.getElementById('btnTurnoAntr');
+const btnReset = document.getElementById('btnReset');
+const btnElegir = document.getElementById('btnElegir');
 
-btnTurnoSigu.addEventListener('click', siguienteTurno);
-btnTurnoAntr.addEventListener('click', anteriorTurno);
-btnReset.addEventListener('click', resetTurno);
-btnElegir.addEventListener('click', elegirTurno);
+
+if (btnTurnoSigu!== null && btnTurnoSigu!== undefined && btnTurnoSigu instanceof HTMLButtonElement) {
+   btnTurnoSigu.addEventListener("click", siguienteTurno);
+   }
+if ( btnTurnoAntr!== null && btnTurnoAntr!== undefined && btnTurnoAntr instanceof HTMLButtonElement){
+   btnTurnoAntr.addEventListener('click', anteriorTurno);
+   }   
+if (btnReset!== null && btnReset!== undefined && btnReset instanceof HTMLButtonElement){
+   btnReset.addEventListener('click', resetTurno);
+   }
+if (btnElegir!== null && btnElegir!== undefined && btnElegir instanceof HTMLButtonElement){
+   btnElegir.addEventListener('click', elegirTurnos);
+   }
+
+
