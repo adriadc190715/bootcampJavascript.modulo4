@@ -4,7 +4,8 @@ const elegirTurno = document.getElementById('elegir-turno') ;
 let numInicio = 1;
 
 function actualizarTurno(){
-   if (numTurno !== null && numTurno !== undefined && numTurno instanceof HTMLInputElement) {
+   
+   if (numTurno !== null && numTurno !== undefined ) {
       numTurno.textContent = numInicio.toString().padStart(2, '0');
      }
    
