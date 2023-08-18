@@ -59,4 +59,4 @@ if (btnElegir) {
    btnElegir.addEventListener('click', elegirTurnos);
 }
 
-actualizarTurno(numInicio);
+
